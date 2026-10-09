@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "createdAt": "2026-10-09T00:00:00+08:00",
+  "updatedAt": "2026-10-09T00:00:00+08:00",
+  "source": {
+    "kind": "synthetic",
+    "reference": "foundation-fixture"
+  },
+  "links": [],
+  "id": "subscription_sample",
+  "kind": "subscription",
+  "title": "合成订阅",
+  "money": {
+    "amountMinor": 1000,
+    "currency": "CNY",
+    "precision": 2
+  }
+}

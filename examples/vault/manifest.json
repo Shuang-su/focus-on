@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "vaultId": "vault_synthetic",
+  "synthetic": true,
+  "validator": {
+    "repository": "Shuang-su/focus-on",
+    "commit": "0000000000000000000000000000000000000000"
+  }
+}

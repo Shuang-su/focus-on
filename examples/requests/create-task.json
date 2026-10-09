@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "requestId": "request_demo",
+  "inputVersion": 1,
+  "source": {
+    "kind": "synthetic",
+    "reference": "foundation-fixture"
+  },
+  "capturedAt": "2026-10-09T00:00:00+08:00",
+  "input": { "text": "添加一项合成待办，保持 todo 状态。" },
+  "baseSnapshot": "801caa0c67dc26ccaf061b08fcfa75dd328d90b67911af5cf55d921b2e52cdce",
+  "operations": [
+    {
+      "op": "create",
+      "record": {
+        "schemaVersion": 1,
+        "revision": 1,
+        "createdAt": "2026-10-09T00:00:00+08:00",
+        "updatedAt": "2026-10-09T00:00:00+08:00",
+        "source": {
+          "kind": "synthetic",
+          "reference": "foundation-fixture"
+        },
+        "links": [],
+        "id": "rec_80c621cc87bf76a01c80d779",
+        "kind": "task",
+        "title": "新增合成待办",
+        "status": "todo"
+      }
+    }
+  ]
+}

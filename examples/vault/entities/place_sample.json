@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "createdAt": "2026-10-09T00:00:00+08:00",
+  "updatedAt": "2026-10-09T00:00:00+08:00",
+  "source": {
+    "kind": "synthetic",
+    "reference": "foundation-fixture"
+  },
+  "links": [],
+  "id": "place_sample",
+  "kind": "entity",
+  "title": "合成地点：尚未核实",
+  "entityType": "place",
+  "locationStatus": "unconfirmed"
+}

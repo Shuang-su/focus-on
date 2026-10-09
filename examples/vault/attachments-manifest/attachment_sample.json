@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "createdAt": "2026-10-09T00:00:00+08:00",
+  "updatedAt": "2026-10-09T00:00:00+08:00",
+  "source": {
+    "kind": "synthetic",
+    "reference": "foundation-fixture"
+  },
+  "links": [],
+  "id": "attachment_sample",
+  "title": "合成附件",
+  "kind": "attachment",
+  "storage": "local",
+  "archiveStatus": "saved",
+  "path": "attachments/sample.txt",
+  "size": 42,
+  "sha256": "2c8199a1069e0d75fd005f92841a5843bcf3c84b5ce182e5d4443e57b2582a3f"
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "createdAt": "2026-10-09T00:00:00+08:00",
+  "updatedAt": "2026-10-09T00:00:00+08:00",
+  "source": {
+    "kind": "synthetic",
+    "reference": "foundation-fixture"
+  },
+  "links": [],
+  "id": "account_sample",
+  "kind": "entity",
+  "title": "合成账户（无真实账号）",
+  "entityType": "account"
+}

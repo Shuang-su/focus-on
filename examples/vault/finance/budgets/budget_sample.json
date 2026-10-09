@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "createdAt": "2026-10-09T00:00:00+08:00",
+  "updatedAt": "2026-10-09T00:00:00+08:00",
+  "source": {
+    "kind": "synthetic",
+    "reference": "foundation-fixture"
+  },
+  "links": [],
+  "id": "budget_sample",
+  "kind": "budget",
+  "title": "合成月度预算",
+  "money": {
+    "amountMinor": 100000,
+    "currency": "CNY",
+    "precision": 2
+  }
+}

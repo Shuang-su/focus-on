@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "createdAt": "2026-10-09T00:00:00+08:00",
+  "updatedAt": "2026-10-09T00:00:00+08:00",
+  "source": {
+    "kind": "synthetic",
+    "reference": "foundation-fixture"
+  },
+  "links": [
+    "plan_sample"
+  ],
+  "id": "finance_sample",
+  "kind": "finance_draft",
+  "title": "合成午餐草稿",
+  "status": "pending",
+  "transactionType": "expense",
+  "money": {
+    "amountMinor": 4800,
+    "currency": "CNY",
+    "precision": 2
+  },
+  "accountId": "account_sample"
+}

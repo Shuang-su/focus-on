@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "createdAt": "2026-10-09T00:00:00+08:00",
+  "updatedAt": "2026-10-09T00:00:00+08:00",
+  "source": {
+    "kind": "synthetic",
+    "reference": "foundation-fixture"
+  },
+  "links": [
+    "collection_sample",
+    "place_sample"
+  ],
+  "id": "plan_sample",
+  "kind": "plan",
+  "title": "合成周末计划",
+  "status": "proposed"
+}

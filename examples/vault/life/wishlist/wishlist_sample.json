@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "createdAt": "2026-10-09T00:00:00+08:00",
+  "updatedAt": "2026-10-09T00:00:00+08:00",
+  "source": {
+    "kind": "synthetic",
+    "reference": "foundation-fixture"
+  },
+  "links": [
+    "product_sample"
+  ],
+  "id": "wishlist_sample",
+  "kind": "wishlist",
+  "title": "合成设备预购",
+  "status": "considering",
+  "budget": {
+    "amountMinor": 200000,
+    "currency": "CNY",
+    "precision": 2
+  }
+}

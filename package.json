@@ -1,0 +1,16 @@
+{
+  "name": "focus-on",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24 <25" },
+  "packageManager": "pnpm@10.18.3",
+  "scripts": {
+    "build": "tsc",
+    "focus": "node .codex-work/build/src/cli.js",
+    "test": "node --test .codex-work/build/test/*.test.js",
+    "check": "pnpm build && pnpm test && pnpm focus validate --vault examples/vault"
+  },
+  "dependencies": { "ajv": "8.17.1", "ajv-formats": "3.0.1", "json-schema-to-ts": "3.1.1" },
+  "devDependencies": { "@types/node": "24.10.1", "typescript": "5.9.3" }
+}
