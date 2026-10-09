@@ -21,4 +21,6 @@ Bootstrap 使用 Node 24.21.0、pnpm 10.18.3 和冻结的锁文件；Node 下载
 
 公共接口：`CaptureRequest`、`ChangeSet`、`ProcessingReceipt`、`RecordData`。执行 `focus schemas` 导出 JSON Schema。格式版本为 1；当前仅支持财务草稿，confirmed 状态不在首轮写入能力内。
 
+公开示例 manifest 的全零 validator SHA 是合成测试标记；正式私有资料库固定实际本体 commit，升级需单独验证。剪藏摘要与笔记可保存在按记录 ID 关联的 Markdown 中。
+
 详见 [数据契约](docs/data-contract.md)、[本机/云端运行](docs/environments.md)、[Linear 配置](docs/linear.md)、[阶段路线图](ROADMAP.md)。本仓库尚未选择开源许可证。

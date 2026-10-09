@@ -1,6 +1,6 @@
 # Roadmap
 
-1. **Foundation**：双仓库、格式 v1、validator、dry-run planner、Mac/Linux 校验、Linear DEV/LIFE 分工。
+1. **Foundation**：双仓库、格式 v1、validator、dry-run planner、Mac/Linux 校验、Linear DEV/FOCUS 分工。
 2. **Capture writer**：授权入口→稳定请求→私有 Issue→唯一请求分支/PR→合并读回→已入库；重试、冲突恢复与回写。财务确认单独授权。
 3. **Daily use**：收件箱、收藏检索、生活事项及可重建查询索引；真实样本验收、备份恢复。
 4. **Context views**：真实地点匹配与人工确认、收藏地图、设计片段与参考包。
