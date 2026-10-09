@@ -127,3 +127,14 @@ test('output paths cannot create outside directories or overwrite through symlin
   await assert.rejects(writeOutput(directory, 'receipt.json', 'overwrite'));
   assert.equal(await readFile(original, 'utf8'), before);
 });
+test('saved request versions survive handoff and reject silent input changes', async () => {
+  const root = await sandbox('inbox'); const req = await request(root);
+  await mkdir(path.join(root, 'inbox/requests'), { recursive: true });
+  await writeFile(path.join(root, 'inbox/requests/request-v1.json'), JSON.stringify(req));
+  assert.deepEqual((await readVault(root)).errors, []);
+  await planChanges(req, root);
+  req.input.text = 'changed on another computer';
+  await assert.rejects(planChanges(req, root), /saved request version/);
+  await writeFile(path.join(root, 'inbox/requests/duplicate.json'), JSON.stringify(req));
+  assert((await readVault(root)).errors.some(x => x.includes('duplicate request version')));
+});

@@ -11,3 +11,5 @@
 请求保留 input.text 原文并固定 baseSnapshot。create ID 为 `rec_` + SHA256(vaultId + ':' + requestId + ':' + inputVersion + ':' + operationIndex) 的前24位。update 保持 ID、kind、createdAt，使用 expectedRevision 和 revision+1。请求重试复用 ID、分支、inputHash；变更基准变化则重新核对，不覆盖。使用原 --out 目录重试会自动读取原 ChangeSet，检测相同版本的输入变更；另一台机器应传 --previous 原 change-set.json。首次处理前必须保存请求版本，不能在跨机器交接中丢弃前次计划。
 
 ChangeSet 包含相对数据路径、beforeHash/afterHash 和候选记录。ProcessingReceipt 的 planned/awaiting_merge/stored 等表示处理状态，stored 需要真实合并和读回证据。基础 planner 只生成 planned/verified=false；文件副本与附件写入由后续受控 writer 提供。
+
+校验器同时检查 inbox/requests 的 CaptureRequest 与重复请求版本、inbox/receipts 的回执。planner 会核对已保存的同一请求版本，输入变动未升版时报冲突。历史请求/回执不参与数据 snapshot，避免把基准哈希写入自身。

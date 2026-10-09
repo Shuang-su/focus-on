@@ -12,6 +12,8 @@ export async function planChanges(request: CaptureRequest, vaultPath: string, pr
   if (request.baseSnapshot !== vault.snapshot) throw new Error('Conflict: vault snapshot changed');
   const seen = new Set<string>();
   const inputHash = digest(canonical(request));
+  const saved = vault.requests.get(request.requestId + '/v' + request.inputVersion);
+  if (saved && digest(canonical(saved)) !== inputHash) throw new Error('Conflict: input differs from saved request version');
   if (previous) {
     if (!validateChangeSet(previous)) throw new Error('Invalid previous ChangeSet');
     if (previous.requestId !== request.requestId || previous.inputVersion !== request.inputVersion) throw new Error('Previous ChangeSet belongs to a different request version');

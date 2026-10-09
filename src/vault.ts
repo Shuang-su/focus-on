@@ -3,7 +3,7 @@ import { readdir, readFile, lstat, realpath } from 'node:fs/promises';
 import path from 'node:path';
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
-import { manifestSchema, recordSchema, captureRequestSchema, changeSetSchema, processingReceiptSchema, type RecordData, type VaultManifest } from './contracts.js';
+import { manifestSchema, recordSchema, captureRequestSchema, changeSetSchema, processingReceiptSchema, type RecordData, type VaultManifest, type CaptureRequest } from './contracts.js';
 
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 (addFormats as unknown as (instance: Ajv2020) => void)(ajv);
@@ -19,7 +19,7 @@ export function canonical(value: unknown): string {
 }
 export const digest = (value: string | Uint8Array) => createHash('sha256').update(value).digest('hex');
 const domains = ['collections', 'notes', 'life', 'finance', 'entities', 'attachments-manifest'];
-export interface VaultSnapshot { root: string; manifest: VaultManifest; records: Map<string, { path: string; record: RecordData }>; snapshot: string; errors: string[] }
+export interface VaultSnapshot { root: string; manifest: VaultManifest; records: Map<string, { path: string; record: RecordData }>; requests: Map<string, CaptureRequest>; snapshot: string; errors: string[] }
 export async function safeFile(root: string, relative: string): Promise<string> {
   if (!relative || path.isAbsolute(relative) || relative.includes('\\') || relative.split('/').some(x => x === '..' || x === '.' || x === '') || relative.split('/').some(x => x.startsWith('.'))) throw new Error('Unsafe relative data path');
   let cursor = root;
@@ -49,7 +49,7 @@ export async function readVault(input: string): Promise<VaultSnapshot> {
   if (!validateManifest(manifest)) errors.push('manifest.json: ' + ajv.errorsText(validateManifest.errors));
   const records: VaultSnapshot['records'] = new Map();
   const hashes: [string, string][] = [['manifest.json', digest(canonical(manifest))]];
-  const requests = new Set<string>();
+  const requests: VaultSnapshot['requests'] = new Map();
   for (const file of await files(root, 'inbox/requests')) {
     try {
       const request = JSON.parse(await readFile(await safeFile(root, file), 'utf8'));
@@ -57,7 +57,7 @@ export async function readVault(input: string): Promise<VaultSnapshot> {
       else {
         const version = request.requestId + '/v' + request.inputVersion;
         if (requests.has(version)) errors.push(file + ': duplicate request version ' + version);
-        requests.add(version);
+        requests.set(version, request);
       }
     } catch { errors.push(file + ': invalid request JSON'); }
   }
@@ -110,5 +110,5 @@ export async function readVault(input: string): Promise<VaultSnapshot> {
       }
     }
   }
-  return { root, manifest, records, snapshot: digest(canonical(hashes.sort(([a], [b]) => a.localeCompare(b, 'en')))), errors };
+  return { root, manifest, records, requests, snapshot: digest(canonical(hashes.sort(([a], [b]) => a.localeCompare(b, 'en')))), errors };
 }
