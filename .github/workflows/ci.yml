@@ -8,6 +8,8 @@ permissions:
 jobs:
   foundation:
     runs-on: ubuntu-latest
+    env:
+      FOCUS_FORCE_PROJECT_NODE: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -2,6 +2,8 @@
 
 Mac、Linux CI、Codex/Work/Dots 各自克隆工作副本，使用相同 bootstrap 和显式 vault 参数。不要同步 SQLite 文件、node_modules、凭据或运行时缓存。
 
+bootstrap 在项目缓存安装固定 Node 24.21.0、pnpm 10.18.3，校验官方 SHA256。tar 使用 --no-same-owner 兼容云端用户映射；仅在成功解压并验证版本后写安装标记，避免失败后的部分解压被误认成功。CI 设 FOCUS_FORCE_PROJECT_NODE=1，覆盖实际下载/解压冷启动路径。脚本在安装前检查项目卷至少剩 512 MiB。
+
 研发云任务只需要本公开仓库与 examples/vault。个人数据任务应通过之后的受限工具返回本次需要的内容；GitHub 仓库访问本身没有目录级权限隔离，不能靠提示词实现财务隔离。
 
 ## Cloud task input
